@@ -9,54 +9,66 @@ deck = ['ascoeur','2coeur','3coeur','4coeur','5coeur','6coeur','7coeur','8coeur'
 #import sys
 import random
 import math
-random.shuffle(carte) #Mélange le deck
 
-# _RC_ OT : ajouter description de la fonction
-def tirer(x):
-    # _RC_ OT : vérifier que le deck n'est pas vide
-    # _RC_ OT : ne faut-il pas initialiser hand ?
-
-    for i in range(x):
-        # _RC_ OT : il me semble que le code suivant tire 2 cartes
-        hand=[carte.pop(0)]
-        hand=hand+[carte.pop(0)]
-    return hand
-
-# _RC_ OT : à quoi sert la ligne suivante ?
-print(tirer(2))
-
-# _RC_ OT : ajouter description de la fonction
-def total(hand):
-    # _RC_ OT : trouver un meilleur nom de variable
-    ass=hand.count(11)
-    t=sum(hand)
-    while ass>0 and t>21:
-        t-=10
-        ass-=1
-        # _RC_ OT : il me semble que le return est mal placé
-        return t
-
-def hand_du_croupier():
-    hand_croupier = []
-    # _RC_ OT : utiliser la fonction tirer
-    hand=[carte.pop(0)]
-    # _RC_ OT : if ou while ?
-    if sum(nombre_hand)<17:
-        hand=hand+[carte.pop(0)]
-        hand_croupier.extend(carte)
-    else:
-            stop
-    # _RC_ OT : mettez-vous d'accord sur les noms des fonctions à coder
-    calculer_hand()
-
-# _RC_ OT : Description ok mais placer les variables globales ailleurs
-#Fonction qui compare le score de chaque joueur et affiche le nombre de victoires
 Victoires_joueur=0
 Victoires_croupier=0
 
+random.shuffle(deck) #Mélange le deck
+
+
+#Fonction qui tire un nombre de cartes donné.
+#En pratique, on tire une ou 2 cartes à la fois.
+def tirer(hand,x):
+    if x > len(deck):
+        print("Pas assez de cartes.")#vérifier que le deck n'est pas vide
+        x=len(deck)
+    for i in range(x):
+        # ne pas utiliser '=', sinon, ne modifie pas la variable passée en paramètre
+        hand.append( deck.pop(0) )
+
+def test():
+    y=[]
+    tirer(y,1)
+    print(y)
+    #print(tirer(hand,55))
+
+test()
+
+#Fonction qui compte la valeur totale de la main
+def total(hand):
+    nbrAS=hand.count(11) #Compte le nombre d'as dans la main
+    t=sum(hand) # RAF finir
+    while nbrAS>0 and t>21:
+        t-=10
+        nbrAS-=1
+    return t
+
+def hand_du_croupier():
+    hand=[]
+    tirer(hand,1)            #Le croupier commence par tirer une carte
+    while total(hand) < 17:
+        tirer(hand,1)#Le croupier tire jusqu'a 17 et s'arrete au dessus
+    print(hand)
+    hand_croupier=total(hand)
+
+def hand_du_joueur():# RAF finir
+    x=input("""Voulez vous une autre carte ?
+Si oui, taper h, sinon taper s:
+""")
+    if x == "h":
+        tirer(hand,1)
+        total(hand)
+        if total(hand) <=21:
+            hand_du_joueur()
+        else:
+            gagnant()
+    else:
+        gagnant()
+
+
+#Fonction qui compare le score de chaque joueur et affiche le nombre de victoires
 def gagnant():
-    # _RC_ OT : mettez-vous d'accord sur les noms des fonctions à coder
-    total_hand()
+    total(hand)
     # _RC_ OT : hand_croupier est une variable locale à hand_du_croupier()
     # donc non accessible ici
     # de toute façon, hand_croupier est une liste et non un entier
@@ -82,7 +94,7 @@ def gagnant():
     elif hand_croupier > hand_joueur:
         print("PERDU")
         Victoires_croupier += 1
-   # else hand_croupier == hand_joueur:
-    #    print("ÉGALITÉ")
+    elif hand_croupier == hand_joueur:
+        print("ÉGALITÉ")
     print(Victoire_croupier, Victoire_joueur)
 
