@@ -52,7 +52,7 @@ def hand_du_croupier():
     hand_croupier=total(hand)
 
 def hand_du_joueur():# RAF finir
-    x=input("Voulez vous une autre carte ?\nSi oui, taper h, sinon taper s:")
+    x=input("Voulez vous une autre carte ?\nSi oui, tapez h, sinon tapez s:")
     if x == "h":
         tirer(hand,1)
         total(hand)
