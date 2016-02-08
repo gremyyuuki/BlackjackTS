@@ -85,7 +85,7 @@ def gagnant():
         print("PERDU")
         Victoires_croupier += 1
     elif hand_croupier > 21:
-        print("Le casino est flambé")
+        print("Le casino est flamby flambé")
         print("GAGNÉ")
         Victoires_joueur += 1
     elif hand_croupier < hand_joueur:
