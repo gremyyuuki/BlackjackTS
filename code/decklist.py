@@ -1,6 +1,8 @@
 # nombre = valeurs que peuvent prendre une carte
 nombre = [1,2,3,4,5,6,7,8,9,10,11]
 # deck = ensemble de cartes du jeu
+# _RC_ 20160214 expliquer différences entre deck et DECK
+# _RC_ 20160214 il vaut mieux changer de nom que de différencier seulement sur la casse
 DECK = ['ascoeur','2coeur','3coeur','4coeur','5coeur','6coeur','7coeur','8coeur','9coeur','10coeur','valetcoeur','damecoeur','roicoeur','ascarreau','2carreau','3carreau','4carreau','5carreau','6carreau','7carreau','8carreau','9carreau','10carreau','valetcarreau','damecarreau','roicarreau','astrefle','2trefle','3trefle','4trefle','5trefle','6trefle','7trefle','8trefle','9trefle','10trefle','valettrefle','dametrefle','roitrefle','aspique','2pique','3pique','4pique','5pique','6pique','7pique','8pique','9pique','10pique','valetpique','damepique','roipique']
 deck = list(DECK)
 #famille = ('coeur', 'trefle', 'pique', 'carreau')
