@@ -24,8 +24,7 @@ canvas.pack()
 bouton_rejouer = Button(cadre, text="Rejouer")
 bouton_rejouer.pack()
 
-bouton_quitter = Button(fenetre, text="Quitter", command = fenetre.quit)
+bouton_quitter = Button(fenetre, text="Quitter", command = fenetre.destroy)
 bouton_quitter.pack()
 
 fenetre.mainloop()
-fenetre.destroy()
