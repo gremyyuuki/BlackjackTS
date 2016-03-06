@@ -3,7 +3,6 @@ DECK = {'ascoeur':11,'2coeur':2,'3coeur':3,'4coeur':4,'5coeur':5,'6coeur':6,'7co
 # _RC_ 20160214 expliquer différences entre deck et DECK
 # _RC_ 20160214 il vaut mieux changer de nom que de différencier seulement sur la casse
 deck = list(DECK)
-
 import random
 import math
 #import tkinter
@@ -79,7 +78,7 @@ def gagnant():
         print("GAGNÉ")
         Victoires_joueur += 1
     elif hand_joueur > 21:
-        print("Flambé")
+        print("Flamby, flambé")
         print("PERDU")
         Victoires_croupier += 1
     elif hand_croupier > 21:
