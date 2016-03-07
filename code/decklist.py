@@ -3,12 +3,10 @@ DECK = {'ascoeur':11,'2coeur':2,'3coeur':3,'4coeur':4,'5coeur':5,'6coeur':6,'7co
 # _RC_ 20160214 expliquer différences entre deck et DECK
 # _RC_ 20160214 il vaut mieux changer de nom que de différencier seulement sur la casse
 deck = list(DECK)
+
 import random
 import math
 #import tkinter
-
-Victoires_joueur=0
-Victoires_croupier=0
 
 random.shuffle(deck) #Mélange le deck
 
@@ -23,13 +21,6 @@ def tirer(hand,x):
         # ne pas utiliser '=', sinon, ne modifie pas la variable passée en paramètre
         hand.append( deck.pop(0) )
 
-# _RC_ je ne comprends pas l'utilité de ça
-# y est une variable locale, donc à la sortie de 'prendre', je n'ai rien
-def prendre(x):
-    y=[]
-    for i in range(x):
-        tirer(y,1)
-    print(y)
 
 #Fonction qui compte la valeur totale de la main
 def total(hand):
@@ -47,7 +38,7 @@ def total(hand):
         nbrAS -= 1
     return t
 
-def croupier(hand_croupier):    
+def croupier(hand_croupier):
     #Le croupier a déj une ou plusieurs cartes
     while total(hand_croupier) < 17:
         tirer(hand_croupier,1)#Le croupier tire jusqu'a 17 et s'arrete au dessus
@@ -62,36 +53,38 @@ def joueur(hand_joueur):
         print(hand_joueur)
         x=input("Voulez vous une autre carte ?\nSi oui, tapez h, sinon tapez s:")
 
+Victoires_joueur=0
+Victoires_croupier=0
 #Fonction qui compare le score de chaque joueur et affiche le nombre de victoires
-def gagnant():
-    total(hand)
-    # _RC_ OT : hand_croupier est une variable locale à hand_du_croupier()
-    # donc non accessible ici
-    # de toute façon, hand_croupier est une liste et non un entier
-    if hand_croupier == 21:
+def gagnant(x,y,a,b):
+    #x est le total de la main du joueur
+    #y est le total de la main du croupier
+    #a est le nbr de victoires du joueur
+    #b est le nbr de victoires du croupier
+    if y == 21:
         print("Blackjack du croupier")
         print("PERDU")
-        Victoires_croupier += 1
-    elif hand_joueur == 21:
+        b = 1+b
+    elif x == 21:
         print("Blackjack !")
         print("GAGNÉ")
-        Victoires_joueur += 1
-    elif hand_joueur > 21:
-        print("Flamby, flambé")
+        a = 1+a
+    elif x > 21:
+        print("Flambé")
         print("PERDU")
-        Victoires_croupier += 1
-    elif hand_croupier > 21:
+        b = 1+b
+    elif y > 21:
         print("GAGNÉ")
-        Victoires_joueur += 1
-    elif hand_croupier < hand_joueur:
+        a = 1+a
+    elif y < x:
         print("GAGNÉ")
-        Victoires_joueur += 1
-    elif hand_croupier > hand_joueur:
+        a = 1+a
+    elif y > x:
         print("PERDU")
-        Victoires_croupier += 1
-    elif hand_croupier == hand_joueur:
+        b = 1+b
+    elif y == x:
         print("ÉGALITÉ")
-    print(Victoire_croupier, Victoire_joueur)
+    print("Victoire du croupier :"+ str(b),"\nVictoires du joueur :" + str(a))
 
 def comptage():
     compte=0
@@ -102,9 +95,8 @@ def comptage():
     elif hand=='10coeur'or'10trefle'or'10carreau'or'10pique'or'valetcoeur'or'valettrefle'or'valetcarreau'or'valetpique'or'damecoeur'or'dametrefle'or'damecarreau'or'damepique'or'roicoeur'or'roitrefle'or'roicarreau'or'roipique'or'ascoeur'or'aspique'or'ascarreau'or'astrefle':
         compte -= 1
 
-# Programme principal
+#Programme principal
 #print(deck)
-
 
 r="r"
 while r=="r":
@@ -124,7 +116,7 @@ while r=="r":
     #Le croupier joue
     croupier(hand_croupier)
     #Comparaison des scores
-
+    gagnant(total(hand_joueur),total(hand_croupier),Victoires_croupier,Victoires_joueur)
     #Question pour rejouer ou quitter
     r=input("Voulez vous rejouer ?\nSi oui, tapez r, sinon tapez q:")
 
