@@ -42,7 +42,6 @@ def total(hand):
         if valeur == 11:#Compte le nombre d'as dans la main
             nbrAS += 1
         t      = t + valeur
-    print("nb d'as = ", nbrAS)
     while nbrAS>0 and t>21:
         t     -= 10
         nbrAS -= 1
@@ -115,6 +114,7 @@ while r=="r":
     #Tirer une carte pour le croupier
     tirer(hand_croupier,1)
     print("main croupier = ", hand_croupier)
+    print("score croupier = ", total(hand_croupier))
     #Tirer deux cartes pour le joueur
     tirer(hand_joueur,2)
     print("main joueur = ", hand_joueur)
