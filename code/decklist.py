@@ -102,7 +102,6 @@ def comptage():# FINIR !!!
 #print(deck)
 #Problème 1 : lorqsu'il n'y a plus de de cartes, le programme bugge.
 #Problème 2 : le compteur de victoires ne marche pas.
-#Problème 4 : si on entre une mauvaise frappe, le jeu fait stay et quitter par défaut.
 
 r="r"
 while r=="r":
