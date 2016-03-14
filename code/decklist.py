@@ -16,7 +16,7 @@ random.shuffle(deck) #Mélange le deck
 def tirer(hand,x):
     if x > len(deck):
         print("Pas assez de cartes.")#vérifier que le deck n'est pas vide
-        x=len(deck)
+        random.shuffle(deck)
     for i in range(x):
         # ne pas utiliser '=', sinon, ne modifie pas la variable passée en paramètre
         hand.append( deck.pop(0) )
@@ -51,7 +51,10 @@ def joueur(hand_joueur):
         tirer(hand_joueur,1)
         print("Votre score:"+str(total(hand_joueur)))
         print(hand_joueur)
+        if total(hand_joueur) >= 21:
+            break
         x=input("Voulez vous une autre carte ?\nSi oui, tapez h, sinon tapez s:")
+
 
 Victoires_joueur=0
 Victoires_croupier=0
@@ -86,7 +89,7 @@ def gagnant(x,y,a,b):
         print("ÉGALITÉ")
     print("Victoire du croupier :"+ str(b),"\nVictoires du joueur :" + str(a))
 
-def comptage():
+def comptage():# FINIR !!!
     compte=0
     if hand=='2coeur'or'2trefle'or'2carreau'or'2pique'or'3coeur'or'3trefle'or'3carreau'or'3pique'or'4coeur'or'4trefle'or'4carreau'or'4pique'or'5coeur'or'5trefle'or'5carreau'or'5pique'or'6coeur'or'6trefle'or'6carreau'or'6pique':
         compte += 1
@@ -97,6 +100,10 @@ def comptage():
 
 #Programme principal
 #print(deck)
+#Problème 1 : lorqsu'il n'y a plus de de cartes, le programme bugge.
+#Problème 2 : le compteur de victoires ne marche pas.
+#Problème 3 : lorsque le joueur est à 21, le jeu ne se termine pas automatiquement.
+#Problème 4 : si on entre une mauvaise frappe, le jeu fait stay et quitter par défaut.
 
 r="r"
 while r=="r":
