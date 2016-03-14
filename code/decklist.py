@@ -46,14 +46,14 @@ def croupier(hand_croupier):
     print("Score du croupier:"+str(total(hand_croupier)))
 
 def joueur(hand_joueur):
-    x=input("Voulez vous une autre carte ?\nSi oui, tapez h, sinon tapez s:")
+    x=input("Voulez vous une autre carte ?\nSi oui, tapez h, sinon tapez sur entrer:")
     while x == "h":
         tirer(hand_joueur,1)
         print("Votre score:"+str(total(hand_joueur)))
         print(hand_joueur)
         if total(hand_joueur) >= 21:
             break
-        x=input("Voulez vous une autre carte ?\nSi oui, tapez h, sinon tapez s:")
+        x=input("Voulez vous une autre carte ?\nSi oui, tapez h, sinon tapez sur entre:")
 
 
 Victoires_joueur=0
@@ -103,7 +103,6 @@ def comptage():# FINIR !!!
 #Problème 1 : lorqsu'il n'y a plus de de cartes, le programme bugge.
 #Problème 2 : le compteur de victoires ne marche pas.
 #Problème 3 : lorsque le joueur est à 21, le jeu ne se termine pas automatiquement.
-#Problème 4 : si on entre une mauvaise frappe, le jeu fait stay et quitter par défaut.
 
 r="r"
 while r=="r":
@@ -125,7 +124,7 @@ while r=="r":
     #Comparaison des scores
     gagnant(total(hand_joueur),total(hand_croupier),Victoires_croupier,Victoires_joueur)
     #Question pour rejouer ou quitter
-    r=input("Voulez vous rejouer ?\nSi oui, tapez r, sinon tapez q:")
+    r=input("Voulez vous rejouer ?\nSi oui, tapez r, sinon tapez sur entrer:")
 
 print("Merci d'avoir joué.\nAu revoir")
 
