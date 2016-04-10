@@ -1,4 +1,4 @@
-dictDECK = {'ascoeur':11,'2coeur':2,'3coeur':3,'4coeur':4,'5coeur':5,'6coeur':6,'7coeur':7,'8coeur':8,'9coeur':9,'10coeur':10,'valetcoeur':10,'damecoeur':10,'roicoeur':10,'ascarreau':11,'2carreau':2,'3carreau':3,'4carreau':4,'5carreau':5,'6carreau':6,'7carreau':7,'8carreau':8,'9carreau':9,'10carreau':10,'valetcarreau':10,'damecarreau':10,'roicarreau':10,'astrefle':11,'2trefle':2,'3trefle':3,'4trefle':4,'5trefle':5,'6trefle':6,'7trefle':7,'8trefle':8,'9trefle':9,'10trefle':10,'valettrefle':10,'dametrefle':10,'roitrefle':10,'aspique':11,'2pique':2,'3pique':3,'4pique':4,'5pique':5,'6pique':6,'7pique':7,'8pique':8,'9pique':9,'10pique':10,'valetpique':10,'damepique':10,'roipique':10}
+dictDECK = {'as_coeur':11,'2_coeur':2,'3_coeur':3,'4_coeur':4,'5_coeur':5,'6_coeur':6,'7_coeur':7,'8_coeur':8,'9_coeur':9,'10_coeur':10,'valet_coeur':10,'dame_coeur':10,'roi_coeur':10,'as_carreau':11,'2_carreau':2,'3_carreau':3,'4_carreau':4,'5_carreau':5,'6_carreau':6,'7_carreau':7,'8_carreau':8,'9_carreau':9,'10_carreau':10,'valet_carreau':10,'dame_carreau':10,'roi_carreau':10,'as_trefle':11,'2_trefle':2,'3_trefle':3,'4_trefle':4,'5_trefle':5,'6_trefle':6,'7_trefle':7,'8_trefle':8,'9_trefle':9,'10_trefle':10,'valet_trefle':10,'dame_trefle':10,'roi_trefle':10,'as_pique':11,'2_pique':2,'3_pique':3,'4_pique':4,'5_pique':5,'6_pique':6,'7_pique':7,'8_pique':8,'9_pique':9,'10_pique':10,'valet_pique':10,'dame_pique':10,'roi_pique':10}
 # deck = ensemble de cartes du jeu
 # dictDECK est le dictionnaire qui permet d'attribuer une valeur aux cartes
 deck = list(dictDECK) #dictDECK est un dictionnaire
@@ -26,7 +26,7 @@ def tirer(hand,x):
         hand.append( deck.pop(0) )
 
 #Fonction qui compte la valeur totale de la main
-def total(hand,c):
+def total(hand):
     t     = 0
     nbrAS = 0
     nbrCartes = len(hand)
