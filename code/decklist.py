@@ -15,7 +15,7 @@ Compte = 0
 
 #Fonction qui tire un nombre de cartes donné.
 #En pratique, on tire une ou 2 cartes à la fois.
-def tirer(hand,x):
+def tirer(hand,x,c):
     if x > len(deck): #vérifier que le deck n'est pas vide
         print("Pas assez de cartes.")
         recharge = list(dictDECK)
@@ -23,7 +23,14 @@ def tirer(hand,x):
         deck.extend(recharge)
     for i in range(x):
         # ne pas utiliser '=', sinon, ne modifie pas la variable passée en paramètre
-        hand.append( deck.pop(0) )
+        carte = ( deck.pop(0) )
+        valeur = dictDECK.get(carte)#compte les cartes pour prédire s'il faut piocher ou pas
+        if 2 <= valeur <= 6:
+          c +=1
+        elif valeur <= 10:
+          c -=1
+        hand.append(carte)
+    print("Le compte est à "+str(c))
 
 #Fonction qui compte la valeur totale de la main
 def total(hand):
