@@ -8,12 +8,10 @@ deck = list(dictDECK) #dictDECK est un dictionnaire
 
 import random
 import math
-
 random.shuffle(deck) #Mélange le deck
 
 #Fonction qui tire un nombre de cartes donné.
 #En pratique, on tire une ou 2 cartes à la fois.
-def tirer(hand,x):
     if x > len(deck): #vérifier que le deck n'est pas vide
         print("Pas assez de cartes.")
         recharge = list(dictDECK)
@@ -52,14 +50,12 @@ def croupier(hand_croupier):
     while total(hand_croupier) < 17: #Le croupier tire jusqu'a 17 et s'arrete au dessus
         tirer(hand_croupier,1)
         print(hand_croupier)
-        
     total_croupier = total(hand_croupier)
     print("Score du croupier : " + str(total_croupier) )
 
 def joueur(hand_joueur):
     #le joueur choisit s'il tire des cartes ou s'il reste
     while total(hand_joueur) < 21:
-        
         x=input("Voulez vous une autre carte ?\nSi oui, tapez h, sinon tapez sur Entrée:")
         if x == "h":
             tirer(hand_joueur,1)
@@ -99,4 +95,3 @@ def gagnant(x,y,s):
                     print("GAGNÉ")
                     s[0] += 1
                     return 1
-
