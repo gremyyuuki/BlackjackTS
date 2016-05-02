@@ -96,20 +96,6 @@ message2.pack(pady=10)
 message3 = Label(fenetre, textvariable = textCompte)#compte des cartes
 message3.pack(pady=10)
 
-mises = Frame(fenetre, width=1, height=1, borderwidth=0)
-mises.pack(side = LEFT)
-
-case_5 = Radiobutton(mises, text="  5 €" ,value=5)
-case_5.pack(pady=1)
-case_10 = Radiobutton(mises, text=" 10 €" ,value=10)
-case_10.pack(pady=1)
-case_25 = Radiobutton(mises, text=" 25 €" ,value=25)
-case_25.pack(pady=1)
-case_50 = Radiobutton(mises, text=" 50 €" ,value=50)
-case_50.pack(pady=1)
-case_100 = Radiobutton(mises, text="100 €" ,value=100)
-case_100.pack(pady=1)
-
 canvas = Canvas(table ,width = 500, height = 520, bg = "#1D702D")#emplacement des cartes
 canvas.pack()
 
