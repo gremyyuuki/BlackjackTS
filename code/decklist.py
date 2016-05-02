@@ -76,23 +76,23 @@ def gagnant(x,y,s):
             return 0
         else:
             print("GAGNÉ")
-            s[0] += 1
-            return 1
+            s[0] += 0.5
+            return 0.5
     else:
         if x > 21:
             print("PERDU")
-            s[1] += 1
-            return -1
+            s[1] += 0.5
+            return -0.5
         else:
             if y > x:
                 print("PERDU")
-                s[1] += 1
-                return -1
+                s[1] += 0.5
+                return -0.5
             else:
                 if x == y:
                     print("ÉGALITÉ")
                     return 0
                 else:
                     print("GAGNÉ")
-                    s[0] += 1
-                    return 1
+                    s[0] += 0.5
+                    return 0.5
