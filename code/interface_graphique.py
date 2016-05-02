@@ -22,14 +22,6 @@ def affiche_table():#fonction qui affiche les objets de la table
     textCompte.set("Compte : "+str(globalVars.compte))
     textScore_joueur.set("Votre score : "+str(globalVars.Scores[0]))
     textScore_croupier.set("Score du croupier : "+str(globalVars.Scores[1]))
-    winner = gagnant(total(hand_joueur),total(hand_croupier),globalVars.Scores)
-    print(winner)
-    if winner == 0:
-        canvas.create_text(260,260, text = "ÉGALITÉ" , fill="white")
-    elif winner == 1:
-        canvas.create_text(260,260, text = "GAGNÉ" , fill="white")
-    else:
-        canvas.create_text(260,260, text = "PERDU" , fill="white")
     fenetre.update_idletasks()
 
 def rejouer():#fonction du bouton rejouer
@@ -45,7 +37,16 @@ def rejouer():#fonction du bouton rejouer
     bouton_rester.config(state=ACTIVE)
     if total(hand_joueur) >= 21:
         bouton_carte.config(state=DISABLED)
-        rester() 
+        rester()
+    winner = gagnant(total(hand_joueur),total(hand_croupier),globalVars.Scores)
+    print(winner)
+    if winner == 0:
+        canvas.create_text(260,260, text = "ÉGALITÉ" , fill="white")
+    elif winner == 1:
+        canvas.create_text(260,260, text = "GAGNÉ" , fill="white")
+    else:
+        canvas.create_text(260,260, text = "PERDU" , fill="white")
+    fenetre.update_idletasks()
 
 
 def carte():#fonction du bouton carte
