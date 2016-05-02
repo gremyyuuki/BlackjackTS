@@ -18,7 +18,7 @@ def tirer(hand,x):
         recharge = list(dictDECK)
         random.shuffle(recharge)# alors, mélanger la recharge
         deck.extend(recharge)
-        gobalVars.compte = 0
+        globalVars.compte = 0
     for i in range(x):
         # ne pas utiliser '=', sinon, ne modifie pas la variable passée en paramètre
         carte = deck.pop(0)
