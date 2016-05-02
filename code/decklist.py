@@ -12,6 +12,7 @@ random.shuffle(deck) #Mélange le deck
 
 #Fonction qui tire un nombre de cartes donné.
 #En pratique, on tire une ou 2 cartes à la fois.
+def tirer(hand,x):
     if x > len(deck): #vérifier que le deck n'est pas vide
         print("Pas assez de cartes.")
         recharge = list(dictDECK)
