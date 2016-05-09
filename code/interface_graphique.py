@@ -106,4 +106,18 @@ bouton_rejouer.pack(side="top")
 bouton_quitter = Button(fenetre, text="Quitter", command = fenetre.destroy)#bouton quitter
 bouton_quitter.pack(side="bottom")
 
+def button_aide():
+    new_window=Tk()
+    cnv = Canvas(new_window,width=800, height=400)
+    cnv.pack()
+    labl = Label(new_window,text="Aide")
+    labl.pack()
+    tableau = PhotoImage(file = "tabstrat1.gif", master= cnv)
+    cnv.create_image(1,1,image=tableau,anchor = NW)
+    new_window.mainloop()
+    
+boutton_aide = Button(fenetre,text="Aide", command = button_aide )
+boutton_aide.pack(side="bottom")
+
+
 fenetre.mainloop()
