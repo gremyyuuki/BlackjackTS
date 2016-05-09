@@ -112,11 +112,10 @@ canvas.pack()
 bouton_rejouer = Button(fenetre, text="Jouer" , command = rejouer)#bouton rejouer
 bouton_rejouer.pack(side="top")
 
-bouton_quitter = Button(fenetre, text="Quitter", command = fenetre.destroy)#bouton quitter
-bouton_quitter.pack(side="bottom")
-
 boutton_aide = Button(fenetre,text="Aide", command = button_aide )
 boutton_aide.pack(side="bottom")
 
+bouton_quitter = Button(fenetre, text="Quitter", command = fenetre.destroy)#bouton quitter
+bouton_quitter.pack(side="bottom")
 
 fenetre.mainloop()
