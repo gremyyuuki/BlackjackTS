@@ -108,7 +108,7 @@ bouton_quitter.pack(side="bottom")
 
 def button_aide():
     new_window=Tk()
-    cnv = Canvas(new_window,width=800, height=400)
+    cnv = Canvas(new_window,width=900, height=400)
     cnv.pack()
     labl = Label(new_window,text="Aide")
     labl.pack()
