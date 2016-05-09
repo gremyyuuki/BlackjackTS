@@ -100,7 +100,7 @@ message3.pack(pady=10)
 canvas = Canvas(table ,width = 500, height = 520, bg = "#1D702D")#emplacement des cartes
 canvas.pack()
 
-bouton_rejouer = Button(fenetre, text="Rejouer" , command = rejouer)#bouton rejouer
+bouton_rejouer = Button(fenetre, text="Jouer" , command = rejouer)#bouton rejouer
 bouton_rejouer.pack(side="top")
 
 bouton_quitter = Button(fenetre, text="Quitter", command = fenetre.destroy)#bouton quitter
