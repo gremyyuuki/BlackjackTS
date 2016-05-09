@@ -50,9 +50,9 @@ def croupier(hand_croupier):
     #Le croupier a déjà une ou plusieurs cartes
     while total(hand_croupier) < 17: #Le croupier tire jusqu'a 17 et s'arrete au dessus
         tirer(hand_croupier,1)
-        print(hand_croupier)
+        #print(hand_croupier)
     total_croupier = total(hand_croupier)
-    print("Score du croupier : " + str(total_croupier) )
+    #print("Score du croupier : " + str(total_croupier) )
 
 def joueur(hand_joueur):
     #le joueur choisit s'il tire des cartes ou s'il reste
@@ -60,8 +60,8 @@ def joueur(hand_joueur):
         x=input("Voulez vous une autre carte ?\nSi oui, tapez h, sinon tapez sur Entrée:")
         if x == "h":
             tirer(hand_joueur,1)
-            print("Votre score : " + str(total(hand_joueur)) )
-            print(hand_joueur)
+            #print("Votre score : " + str(total(hand_joueur)) )
+            #print(hand_joueur)
         else:
             break
 
@@ -72,27 +72,27 @@ def gagnant(x,y,s):
     #s est une liste de scores dont le premier élément est le nombre de victoires du joueur et le second celui du croupier
     if y > 21:
         if x > 21:
-            print("ÉGALITÉ")
+            #print("ÉGALITÉ")
             return 0
         else:
-            print("GAGNÉ")
+            #print("GAGNÉ")
             s[0] += 0.5
             return 0.5
     else:
         if x > 21:
-            print("PERDU")
+            #print("PERDU")
             s[1] += 0.5
             return -0.5
         else:
             if y > x:
-                print("PERDU")
+               #print("PERDU")
                 s[1] += 0.5
                 return -0.5
             else:
                 if x == y:
-                    print("ÉGALITÉ")
+                    #print("ÉGALITÉ")
                     return 0
                 else:
-                    print("GAGNÉ")
+                    #print("GAGNÉ")
                     s[0] += 0.5
                     return 0.5
